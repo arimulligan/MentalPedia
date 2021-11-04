@@ -283,3 +283,94 @@ div.row.vh-100 div.col-3 {
     margin-top: 13vh;
 }
 
+/* for the results page */
+
+/* for the div that contains the percentages (circles) */
+div.row.vh-500 div.col-4.circle {
+    align-self: center;
+    transform: translateY(-50%);
+    background-color: #CFD8A2;
+    padding:50px;
+    flex-basis: auto;
+    height: 50vh;
+    width: 27%;
+    border:thick double white;
+    border-radius:100%;
+    justify-content: center;
+}
+
+/* for the text input for second test page */
+textarea#text.form-control {
+    margin-bottom: 10vh;
+    margin-right: 2vw;
+    font-size: calc(1vw + 1vh);
+    color: #599AA4;
+}
+
+/* for the email text input  */
+#email {
+    border: thick solid #93A449;
+    border-radius: 14px;
+    width: 50vw;
+    height: 7vh;
+    align-self: flex-start;
+    font-size: calc(1vw + 1vh);
+}
+
+/* for the email button */
+.form-inline input.btn.btn-primary {
+    border: thick solid #93A449;
+    border-radius: 14px;
+    width: 15vw;
+    height: 7vh;
+    font-size: calc(1vw + 1vh);
+    background: #CFD8A2;
+}
+
+/* for the disclaimer */
+div.row.vh-500 div.col-10 {
+    width: 90%;
+    height: 21vh;
+    border: thick solid #599AA4;
+    border-radius: 40px 40px 40px 0;
+    background: #B7DEF0;
+    margin: 5vw;
+}
+
+/* to center the text areas */
+#center {
+    justify-content: center;
+}
+
+/* for the title bars */
+.oval {
+    background: white;
+    border-radius: 90px;
+    width: 14vw;
+    height: 7vw;
+    margin: 5px;
+}
+
+/* mental illness containers */
+div.row.vh-500 div.col-10.dotted {
+    width: 90%;
+    height: 55vh;
+    border: thick dashed #599AA4;
+    border-radius: 40px;
+    background: #B7DEF0;
+    margin: 5vh;
+    padding: 10px;
+}
+
+/* for the related mental health issues */
+.radial {
+    align-items: center;
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 900;
+    display: flex;
+    height: 30vh;
+    width: 100vw;
+    justify-content: center;
+    background-image: radial-gradient(#5D6C1E, #CFD8A2);
+}
