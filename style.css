@@ -1,0 +1,285 @@
+/* applying the font family for all attributes */
+* {
+    font-family: Verdana;
+}
+
+/* for paragraph text */
+p {
+    color:#5D6C1E;
+    font-style: italic;
+    font-size:calc(1vw + 0.5vh);
+    padding:15px;
+    text-align: center;
+}
+
+/* for all h3 headers */
+h3 {
+    color:white;
+    font-size:calc(2vw + 2vh);
+    font-weight: bold;
+    padding:10px;
+    text-align: center;
+}
+
+/* for all h4 headers */
+h4 {
+    color: white;
+    font-size:calc(1vw + 2vh);
+    padding:10px;
+    font-style: oblique;
+}
+
+/* for all a text */
+.glyphicon a {
+    font-style: normal;
+    font-size:calc(1vw + 0.5vh);
+    transform: translateY(-10px);
+}
+
+/* this is for the containers which holds all of the pages */
+.container-fluid div.row.vh-500 {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*the following is for the navbar*/
+
+/* for the navbar title */
+.navbar.sticky-top.navbar-light .navbar-brand {
+    color: white;
+    font-size: 45px;
+    margin-left: 30px;
+}
+/* for the navbar color */
+.navbar {
+    background-color:#599AA4;
+    text-align: right;
+}
+/* for the navbar menu icon */
+.navbar-toggler {
+    background-color: white;
+    font-size: 2em;
+}
+
+/*these two are for the links in the menu bar */
+.navbar-light .navbar-nav .nav-link {
+    color:white;
+    font-size: 20px;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color:#B7DEF0;
+    font-size: 30px;
+}
+
+nav.navbar.static-bottom.navbar-light.nav.justify-content-center form.form-inline a.nav-link {
+    color:white;
+    float: left;
+    font-size: 20px;
+}
+
+/* the following is for the home page */
+
+/* this is the header */
+div.col-12 {
+    background-color:#B7DEF0;
+    height: 60vh;
+    text-align:center;
+    color: white;
+    font-size: calc((45vw - 2.5rem) / 7);
+    padding-top: 10vh;
+}
+
+/* for the three boxes to overlay the header */
+div.row.vh-500 div.col-4.overlay-text {
+    /* these two are needed - the align self makes the column not stretch the whole height of the image column and the
+    transform moves the column over the image */
+    align-self: center;
+    transform: translateY(-40%);
+    background-color: #CFD8A2;
+    padding:20px;
+    flex-basis: auto;
+    height: 50vh;
+    width: 27%;
+    border:thick double white;
+    border-radius:35px;
+}
+
+/* for the text of the 3 boxes */
+div.row a.nav-link {
+    color:white;
+    font-size:calc(1.5vw + 2vh);
+    font-weight:bold;
+    text-align: center;
+}
+
+/* this is for the 'see more' button */
+div.col-4 a.btn.btn-default.btn-lg {
+    justify-content: flex-end;
+    display: flex;
+    color: #5D6C1E;
+    font-size: calc(2vw + 2vh);
+    transform: translateY(85%);
+}
+
+/* How Does It Work? section */
+div.row.vh-50 div.col-6 {
+    padding:20px;
+    height: 60vh;
+    width: 61%;
+    margin-bottom: 40px;
+
+    text-align:center;
+    border:thick solid #5D6C1E;
+    border-radius:148px 0 148px 148px;
+    background-color:#CFD8A2;
+    transform: translateY(-30%);
+
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+
+/* for the learn more about mental health section */
+div.row div.col-4 {
+    padding:20px;
+    height: 60vh;
+    width: 25%;
+    margin-bottom: 40px;
+    border:thick dashed #93A449;
+    border-radius:0 89px 89px 89px;
+    background-color:#CFD8A2;
+
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+
+/*for default buttons */
+div.col-xs-1 p a.btn.btn.btn-default {
+    color:#5D6C1E;
+    font-size:calc(1vw + 0.5vh);
+    text-align: center;
+}
+
+/* for border for default buttons */
+div.col-xs-1 {
+    border: thick solid #93A449;
+    background: white;
+    border-radius: 150px;
+    margin: 5px;
+}
+
+/* for the second row */
+div.container-fluid div.row.vh-50 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
+
+/* if the screen size gets small, the last column shifts underneath */
+@media screen and (max-width: 800px) {
+    div.container-fluid div.row.vh-50 {
+        flex-direction: column;
+        align-content: stretch;
+    }
+
+    div.row.vh-50 div.col-4 {
+        align-self: center;
+        width: 100vw;
+    }
+
+    div.row.vh-50 div.col-6 {
+        align-self: center;
+        width: 100vw;
+    }
+
+}
+
+/* the following is for the test page */
+
+div.row.vh-100 div.col-6 {
+    background:#B7DEF0;
+    border:thick solid #599AA4;
+    border-radius:68px;
+    text-align: center;
+    height: 50vh;
+    width: 40vw;
+    margin-top: 10vh;
+}
+
+/* for blue text */
+.blue {
+    color:#599AA4;
+    font-style: normal;
+    font-size:calc(1vw + 1vh);
+    padding:15px;
+    text-align: center;
+}
+
+/* for the full stars */
+.glyphicon-star {
+    color: #599AA4;
+    font-size: 8vh;
+}
+
+/*for the empty stars*/
+.glyphicon-star-empty {
+    color: #B7DEF0;
+    font-size: 8vh;
+}
+/* for icon text */
+.col-3 p.blue {
+    transform: translateY(-60px);
+    font-style: normal;
+    text-align: right;
+}
+/* for the questions form */
+ol {
+    font-size: calc(1vw + 1vh);
+    color: #93A449;
+    transform: translateY(-80px);
+}
+/* for the questions text */
+ol li {
+    color: #5D6C1E;
+    font-style: italic;
+}
+/* the answers the user can fill out */
+ol input[type=radio] {
+    margin-bottom: 10vh;
+    margin-right: 2vw;
+}
+/* for the calculate button */
+ol input[type=submit] {
+    font-size: calc(2vw + 1vh);
+    background: #93A449;
+    color: #CFD8A2;
+    border-radius: 48px;
+    border-color: #5D6C1E;
+    border-style: solid;
+    border-width: 5px;
+    margin-left: 20vw;
+}
+
+/* this is for the second test page */
+
+/* for the brain picture */
+div.row.vh-100 div.col-6.picture {
+    background: white;
+    border: none;
+}
+
+/* for the image of brand */
+div.col-6.picture img {
+    height: 50vh;
+    width: 25vw;
+}
+
+/* for the stars column */
+div.row.vh-100 div.col-3 {
+    margin-top: 13vh;
+}
+
