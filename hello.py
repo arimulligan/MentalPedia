@@ -8,6 +8,19 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 app.secret_key = "aC@nth8scdjkfdhfjdsfkdksm12345678910helloworlddlrowolleh"
 
+# to send the email of their results
+app.config.update(
+    DEBUG=True,
+    # EMAIL SETTINGS - please ignore my email password :)
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=465,
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME='ariannatnz@gmail.com',
+    MAIL_PASSWORD='ar1@gmail'
+)
+
+mail = Mail(app)
+
 
 # when you click on the link, it directs to this page
 @app.route("/")
@@ -68,6 +81,44 @@ def calculate(firstq, lastq):
             continue
     return mental_issue
 
+# the second test page code, which i dont have time to insert
+# # makes a list of the second questions
+# secondpage_questions = list()
+# with open("secondquestions.txt", "r") as file:
+#     for i in file:
+#         secondpage_questions.append(i.rstrip("\n"))
+#
+# # this deep copy is so if I make any changes to the duplicated list it won't affect the original list.
+# secondquestions = copy.deepcopy(secondpage_questions)
+#
+#
+# @app.route("/secondtestpage", methods=["POST", "GET"])
+# def secondtestpage():
+#     return render_template("secondtestpage.html", q=secondquestions)
+
+
+@app.route("/results", methods=["POST"])
+def results():
+    if request.method == "POST":
+        burn_out = int(calculate(0, 4))
+        stress = int(calculate(5, 9))
+        anxiety = int(calculate(10, 14))
+        return render_template("results.html", b=burn_out, s=stress, a=anxiety)
+    else:
+        return render_template("results.html")
+
+
+# this is for the 'email my results' button... the email doesn't look nice but it gets the job done
+@app.route("/send_message", methods=['POST'])
+def send_message():
+    email = request.form.get('email')
+    msg = Message(
+       subject='Your MentalPedia Results',
+       sender='ariannatnz@gmail.com',
+       recipients=[email],
+       html=render_template("results.html"))
+    mail.send(msg)
+    return render_template("results.html")
 
 
 @app.route("/contact")
