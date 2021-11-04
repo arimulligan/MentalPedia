@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row vh-500">
+      <div class="col-12">A Mental Health Encyclopedia!</div>
+      <div class="col-4 overlay-text">
+        <a class="nav-link" href="{{ url_for('home') }}">Am I Burnt Out?</a>
+      </div>
+      <div class="col-4 overlay-text">
+        <a class="nav-link" href="{{ url_for('home') }}">How Do I Stop Myself From Stressing?</a>
+      </div>
+      <div class="col-4 overlay-text">
+        <a class="nav-link" href="{{ url_for('takethetest') }}">Take The Test</a>
+        <p>This test is designed specifically for younger audiences, with worries about burn out, anxiety or extreme
+          stress.</p>
+        <a href="{{ url_for('takethetest') }}" class="btn btn-default btn-lg">
+          <i class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="row vh-50">
+      <div class="col-1"></div>
+      <div class="col-6">
+        <h3>How Does It Work?</h3>
+        <p>This website is an online mental health book, filled with different mental illnesses,
+          mental problems, or any questions you need answering about mental health! You can explore
+          these areas by clicking on the search button or looking to your left at the box.
+          If you are more interested in mental health aspects that concern you, we have a test
+          around your current mental status and living situation, giving you personalised
+          and informative results on your susceptibility to any mental disorders. You can do
+          this by clicking on 'take the test'.</p>
+      </div>
+      <div class="col-1"></div>
+        <div class="col-4">
+          <h4>Learn More About Mental Health...</h4>
+          <div class="row">
+            <div class="col-xs-1">
+              <p><a href="#" class="btn btn-default btn-sm" role="button">Anxiety</a></p></div>
+            <div class="col-xs-1">
+              <p><a href="#" class="btn btn-default btn-sm" role="button">Depression</a></p></div>
+            <div class="col-xs-1">
+              <p><a href="#" class="btn btn-default btn-sm" role="button">Burn Out</a></p></div>
+            <div class="col-xs-1">
+              <p><a href="#" class="btn btn-default btn-sm" role="button">Bipolar Disorder</a></p></div>
+            <div class="col-xs-1">
+              <p><a href="#" class="btn btn-default btn-sm" role="button">OCD</a></p></div>
+            <div class="col-xs-1">
+              <p><a href="#" class="btn btn-default btn-sm" role="button">Schizophrenia</a></p></div>
+            <div class="col-xs-1">
+              <p><a href="#" class="btn btn-default btn-sm" role="button">Stress</a></p></div>
+            <div class="col-xs-1">
+              <p><a href="#" class="btn btn-default btn-sm" role="button">PTSD</a></p></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+{% endblock %}
+
