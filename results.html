@@ -1,0 +1,88 @@
+{%extends "base.html" %}
+{% block title %}Your Results{% endblock %}
+{% block content %}
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row vh-500">
+      <div class="col-12">Your Results...</div>
+      <div class="col-4 circle">
+        <h3>{{ a }}%</h3>
+        <p>Susceptibility to anxiety</p>
+      </div>
+      <div class="col-4 circle">
+        <h3>{{ s }}%</h3>
+        <p>How stressed out you are in the past 10 days</p>
+      </div>
+      <div class="col-4 circle">
+        <h3>{{ b }}%</h3>
+        <p>How burnt out you are these days</p>
+      </div>
+    </div>
+    <div class="row vh-500">
+        <form class="form-inline" action="/send_message" method="POST">
+            <div class="col-1"></div>
+            <div class="col-7">
+                <input type="text" name="email" placeholder="Enter email..." id="email">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2">
+                <input type="submit" value="Email my results!" class="btn btn-primary">
+            </div>
+            <div class="col-1"></div>
+        </form>
+    </div>
+    <div class="row vh-500" id="center">
+        <div class="col-10">
+            <p class="blue">Disclaimer: Based on your responses, this stress assessment is designed to identify the extent to which
+                you may be vulnerable to stress related issues associated with a contemporary lifestyle. This online
+                self-assessment tool does not medically or scientifically diagnose your level of mental illness. A needs
+                analysis with a qualified professional is required to obtain an accurate evaluation. </p>
+        </div>
+        <div class="col-10 dotted">
+            <div class="oval"><p class="blue">Susceptibility to Anxiety</p></div>
+            <p class="blue">Anxiety is your body’s natural response to stress. It’s a feeling of fear or apprehension
+                about what’s to come. If your susceptibility to anxiety is a high percentage, it means that you have
+                been more anxious in this past month. This also means that you have had a combination of factors that
+                have added to the anxiety in the last month, like work and school stress, a change in living
+                arrangements, family and relationship problems, abuse or trauma, or loss of a loved one. Other factors
+                such as your personality can affect your susceptibility to anxiety over a long period of time, like
+                children who are perfectionists, easily flustered, timid, inhibited, lack self-esteem or want to control
+                everything, sometimes develop anxiety during childhood, adolescence or as adults.
+            </p>
+        </div>
+        <div class="col-10 dotted">
+            <div class="oval"><p class="blue">Your Level of Stress</p></div>
+            <p class="blue">Stress is defined as a state of mental or emotional strain caused by adverse circumstances.
+                At one point or another, most people deal with feelings of stress. For example, if you're a teenage boy,
+                and you're under heaps of stress, you may find that you have increased acne, according to Healthline.
+                Another study looked at 2,699 children and found that exposure to stressful events was associated with
+                an increased risk of constipation. What causes stress is very similar to anxiety, such as being under
+                lots of pressure, facing big changes, not having much or any control over the outcome of a situation or
+                times of uncertainty. Other factors like your perception of the situation, your emotional resilience to
+                stressful situations, the amount of other pressures on you at the time and the amount of support you are
+                receiving.
+            </p>
+        </div>
+        <div class="col-10 dotted">
+            <div class="oval"><p class="blue">How Burnt Out You Are</p></div>
+            <p class="blue">People experiencing burnout often feel like they have nothing left to give and may dread
+                getting out of bed each morning. They may even adopt a pessimistic outlook toward life and feel
+                hopeless. Anyone who’s continually exposed to high levels of stress can experience burnout. Personality
+                characteristics like needing to be in control, perfectionism, and being “Type A” can also increase your
+                risk of burnout. If you've been feeling exhausted, isolated, may fantasize about running away or going
+                on a solo-vacation, or may turn to drugs, alcohol, or food as a way to numb the emotional pain. Other
+                symptoms like irritability or frequent illnesses are also a sign of burn out.
+            </p>
+        </div>
+    </div>
+    <div class="row vh-500">
+        <div class="radial">
+            Related Mental Health Issues
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}
