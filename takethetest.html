@@ -1,0 +1,44 @@
+{%extends "base.html" %}
+{% block title %}Take the Test{% endblock %}
+{% block content %}
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row vh-100">
+        <div class="col-1"></div>
+        <div class="col-6">
+            <h3>About The Test</h3>
+            <p class="blue">This test will ask you if you seem to have any of the different symptoms of burn out, anxiety and extreme
+                stress. Consider these questions as abnormal things you usually don’t do – like if you usually
+                procrastinate and know it’s part of your personality, think if you have procrastinated more than usual.
+                This test has been designed for teenagers, but is suitable for all ages. </p>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <i class="glyphicon glyphicon-star" aria-hidden="true"></i><p class="blue">Test questions</p>
+            <i class="glyphicon glyphicon-star-empty" aria-hidden="true"></i><p class="blue">Your Results</p>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row vh-500">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <form action='/results' method='POST'>
+                <ol>
+                    {% for question in q %}
+                        <li>{{question}}</li>
+                        <label>{% for number in q[question] %}
+                        {{number}} <input type='radio' value='{{number}}' name="{{question}}"/>
+                            {% endfor %}</label>
+                    {% endfor %}
+                    <input type="submit" value=" Calculate "/>
+                </ol>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+</body>
+{% endblock %}
