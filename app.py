@@ -67,7 +67,7 @@ def inject_enumerate():
 #  this function calculates the percentage of burn out, stress and anxiety the user is experiencing in the past month
 def calculate(firstq, lastq):
     mental_issue = 0
-    for num in range(15):
+    for num in range(10):
         get_answers = list(firstquestions.keys())[num]
         answered = request.form.get(get_answers)
         if num >= firstq and num <= lastq:
