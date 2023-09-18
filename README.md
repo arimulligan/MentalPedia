@@ -1,5 +1,5 @@
 # MentalPedia
-A website which helps teenagers with their mental health. 
+A website which helps kids with their mental health.
 
 *To run this site on your local machine:*
 

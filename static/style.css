@@ -1,6 +1,5 @@
-/* applying the font family for all attributes */
+/* NOT applying the font family for all attributes, for low carbon */
 * {
-    font-family: Verdana;
 }
 
 /* for paragraph text */

@@ -1,8 +1,12 @@
 # imports flask, a function which can redirect the current url
 # to a different one, and url_for
-from flask import Flask, redirect, url_for, render_template, request, session, flash
+from flask import Flask, redirect, url_for, render_template, request, session, flash, request, make_response
 import copy
 from flask_mail import Mail, Message
+from werkzeug.datastructures import ImmutableMultiDict
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 # creating the app
 app = Flask(__name__)
@@ -16,8 +20,15 @@ app.config.update(
     MAIL_PORT=465,
     MAIL_USE_SSL=True,
     MAIL_USERNAME='ariannatnz@gmail.com',
-    MAIL_PASSWORD='ar1@gmail'
+    MAIL_PASSWORD='Ar1@gmail'
 )
+
+# (B) SETTINGS
+HOST_NAME = "localhost"
+HOST_PORT = 80
+MAIL_FROM = "sys@site.com"
+MAIL_TO = "ariannatnz@gmail.com"
+MAIL_SUBJECT = "Contact Form"
 
 mail = Mail(app)
 
@@ -36,6 +47,44 @@ def tohome():
 @app.route("/search")
 def search():
     return render_template("search.html")
+
+# (C1) CONTACT FORM
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+# (C2) THANK YOU PAGE
+@app.route("/thankyou")
+def thank():
+    return render_template("thank_you.html")
+
+# (C3) SEND CONTACT FORM
+@app.route("/send", methods=["POST"])
+def foo():
+    # EMAIL HEADERS
+    mail = MIMEMultipart("alternative")
+    mail["Subject"] = MAIL_SUBJECT
+    mail["From"] = MAIL_FROM
+    mail["To"] = MAIL_TO
+
+    # EMAIL BODY (CONTACT DATA)
+    data = dict(request.form)
+    msg = "<html><head></head><body>"
+    for key, value in data.items():
+        msg += key + " : " + value + "<br>"
+    msg += "</body></html>"
+    mail.attach(MIMEText(msg, "html"))
+
+    # SEND MAIL
+    mailer = smtplib.SMTP("smtp.gmail.com", 587)  # Use Gmail's SMTP server and port 587 for TLS
+    mailer.starttls()  # Enable TLS encryption
+
+    mailer.sendmail(MAIL_FROM, MAIL_TO, mail.as_string())
+    mailer.quit()
+
+    # HTTP RESPONSE
+    res = make_response("OK", 200)
+    return res
 
 
 # makes a list of the questions
@@ -67,7 +116,7 @@ def inject_enumerate():
 #  this function calculates the percentage of burn out, stress and anxiety the user is experiencing in the past month
 def calculate(firstq, lastq):
     mental_issue = 0
-    for num in range(10):
+    for num in range(15):
         get_answers = list(firstquestions.keys())[num]
         answered = request.form.get(get_answers)
         if num >= firstq and num <= lastq:
@@ -121,15 +170,15 @@ def send_message():
     return render_template("results.html")
 
 
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
+# @app.route("/contact")
+# def contact():
+#     return render_template("contact.html")
 
 # runs the app, and debug=true means that it reloads the page without
 # having to load it on this virtual environment
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(HOST_NAME, HOST_PORT)
 
 

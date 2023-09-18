@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Contact</title>
+    <meta charset="utf-8">
+    <script async src="static/contact.js"></script>
+    <link rel="stylesheet" href="static/contact.css">
+  </head>
+  <body>
+    <!-- (A) CONTACT FORM -->
+    <form id="contactForm" onsubmit="return send();">
+      <label for="name">Name</label>
+      <input type="text" name="Name" required>
+
+      <label for="email">Email</label>
+      <input type="email" name="Email" required>
+
+      <label for="message">Message</label>
+      <textarea name="Message" required></textarea>
+
+      <input type="submit" value="Go!" id="contactGo">
+    </form>
+  </body>
+</html>
