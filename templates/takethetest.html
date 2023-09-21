@@ -18,6 +18,7 @@
         <div class="col-1"></div>
         <div class="col-3">
             <i class="glyphicon glyphicon-star" aria-hidden="true"></i><p class="blue">Test questions</p>
+            <i class="glyphicon glyphicon-star-empty" aria-hidden="true"></i><p class="blue">More test questions</p>
             <i class="glyphicon glyphicon-star-empty" aria-hidden="true"></i><p class="blue">Your Results</p>
         </div>
         <div class="col-1"></div>
@@ -25,7 +26,7 @@
     <div class="row vh-500">
         <div class="col-2"></div>
         <div class="col-8">
-            <form action='/results' method='POST'>
+            <form action='/secondtestpage' method='POST'>
                 <ol>
                     {% for question in q %}
                         <li>{{question}}</li>

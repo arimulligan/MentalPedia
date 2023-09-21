@@ -1,6 +1,15 @@
-* {
-    box-sizing: border-box;
+@media screen and (max-width: 800px) {
+    tr { 
+      display: flex; 
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0.5em 0;
+    }
+    td, th {
+      flex: 1 1 150px;
+    }
   }
+
   #contactForm {
     padding: 20px;
     max-width: 500px;
@@ -21,3 +30,8 @@
     cursor: pointer;
   }
   #contactForm input[type="submit"]:disabled { background: #424242; }
+
+  table, th, td {
+    border: 1px solid black;
+    width: fit-content;
+  }

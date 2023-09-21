@@ -1,8 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JS Contact</title>
-    <meta charset="utf-8">
     <script async src="static/contact.js"></script>
     <link rel="stylesheet" href="static/contact.css">
   </head>
@@ -20,5 +21,26 @@
 
       <input type="submit" value="Go!" id="contactGo">
     </form>
+
+    <thead>
+    <table>
+      <tr>
+        {% for i in range(5) %}
+        <td>Emil</td>
+        <td>Tobias</td>
+        <td>Linus</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        {% for i in range(5) %}
+        <td>16</td>
+        <td>14</td>
+        <td>10</td>
+        {% endfor %}
+      </tr>
+      
+    </table>
+  </thead>
   </body>
 </html>
+{% endblock %}

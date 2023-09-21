@@ -1,7 +1,3 @@
-/* NOT applying the font family for all attributes, for low carbon */
-* {
-}
-
 /* for paragraph text */
 p {
     color:#5D6C1E;

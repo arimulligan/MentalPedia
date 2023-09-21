@@ -9,20 +9,22 @@
     <div class="row vh-100">
         <div class="col-1"></div>
         <div class="col-6 picture">
-            <img alt="brand image" src="{{ url_for('static', filename='brand_no_border.png') }}" width="80">
+            <a href="#nextquestions" class="btn btn-info btn-lg">Scroll Down
+                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+            
         </div>
         <div class="col-1"></div>
         <div class="col-3">
             <i class="glyphicon glyphicon-star" aria-hidden="true"></i><p class="blue">Test questions</p>
-            <i class="glyphicon glyphicon-star" aria-hidden="true"></i><p class="blue">More test questions - doesn't work!</p>
+            <i class="glyphicon glyphicon-star" aria-hidden="true"></i><p class="blue">More test questions</p>
             <i class="glyphicon glyphicon-star-empty" aria-hidden="true"></i><p class="blue">Your Results</p>
         </div>
         <div class="col-1"></div>
     </div>
-    <div class="row vh-500">
+    <div class="row vh-500"  id="nextquestions">
         <div class="col-2"></div>
         <div class="col-8">
-            <form action='#' method='POST'>
+            <form action='/results' method='POST'>
                 <ol>
                     {% for question in q %}
                         <li>{{question}}</li>

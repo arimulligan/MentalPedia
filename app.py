@@ -130,28 +130,31 @@ def calculate(firstq, lastq):
             continue
     return mental_issue
 
-# the second test page code, which i dont have time to insert
-# # makes a list of the second questions
-# secondpage_questions = list()
-# with open("secondquestions.txt", "r") as file:
-#     for i in file:
-#         secondpage_questions.append(i.rstrip("\n"))
-#
-# # this deep copy is so if I make any changes to the duplicated list it won't affect the original list.
-# secondquestions = copy.deepcopy(secondpage_questions)
-#
-#
-# @app.route("/secondtestpage", methods=["POST", "GET"])
-# def secondtestpage():
-#     return render_template("secondtestpage.html", q=secondquestions)
+
+# makes a list of the second questions
+secondpage_questions = list()
+with open("secondquestions.txt", "r") as file:
+    for i in file:
+        secondpage_questions.append(i.rstrip("\n"))
+
+# this deep copy is so if I make any changes to the duplicated list it won't affect the original list.
+secondquestions = copy.deepcopy(secondpage_questions)
+
+
+@app.route("/secondtestpage", methods=["POST", "GET"])
+def secondtestpage():
+    global burn_out, stress, anxiety
+    if request.method == "POST":
+        burn_out = int(calculate(0, 4))
+        stress = int(calculate(5, 9))
+        anxiety = int(calculate(10, 14))
+    return render_template("secondtestpage.html", q=secondquestions)
 
 
 @app.route("/results", methods=["POST"])
 def results():
     if request.method == "POST":
-        burn_out = int(calculate(0, 4))
-        stress = int(calculate(5, 9))
-        anxiety = int(calculate(10, 14))
+        # implement second test page results here
         return render_template("results.html", b=burn_out, s=stress, a=anxiety)
     else:
         return render_template("results.html")
@@ -170,15 +173,5 @@ def send_message():
     return render_template("results.html")
 
 
-# @app.route("/contact")
-# def contact():
-#     return render_template("contact.html")
-
-# runs the app, and debug=true means that it reloads the page without
-# having to load it on this virtual environment
-
-
 if __name__ == "__main__":
     app.run(HOST_NAME, HOST_PORT)
-
-
